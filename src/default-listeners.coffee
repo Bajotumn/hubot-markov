@@ -86,7 +86,7 @@ module.exports = (robot, config) ->
 
     if config.respondChance > 0
       robot.catchAll (msg) ->
-        if Math.random() < config.respondChance
+        if Math.random() < config.respondChance and msg.message.text
           randomWord = msg.random(processors.words.pre(msg.message.text)) or ''
 
           if config.reverseModel
